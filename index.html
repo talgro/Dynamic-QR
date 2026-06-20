@@ -1,68 +1,63 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>טל & נטלי 💍</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       height: 100%;
       margin: 0;
-      font-family: 'Assistant', sans-serif;
+      font-family: 'Heebo', sans-serif;
       background: linear-gradient(135deg, #f7f3ef, #eef3ff);
-      overflow: hidden;
+
+      /* חשוב למובייל + קונפטי */
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     body {
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      padding: 18px;
     }
 
-    /* הכרטיס */
+    /* 🎉 קונפטי דינמי */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      opacity: 0.8;
+      z-index: 0;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+
+    /* כרטיס */
     .card {
-      width: 92%;
-      max-width: 900px;
-      height: 520px;
-      background: white;
-      border-radius: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      display: flex;
-      overflow: hidden;
-    }
-
-    /* צד שמאל / ימין */
-    .side {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .natali {
-      background: linear-gradient(135deg, #fff1f5, #ffe4ec);
-    }
-
-    .tal {
-      background: linear-gradient(135deg, #eef3ff, #dde6ff);
-    }
-
-    /* תוכן עליון */
-    .header {
-      position: absolute;
-      top: 30px;
-      text-align: center;
       width: 100%;
-      pointer-events: none;
+      max-width: 720px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      padding: 22px;
+      text-align: center;
+      z-index: 2;
+      position: relative;
     }
 
     .title {
@@ -74,38 +69,58 @@
     .date {
       font-size: 14px;
       color: #777;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
 
     .message {
-      font-size: 14px;
+      font-size: 15px;
       color: #666;
+      margin-bottom: 22px;
+      line-height: 1.6;
     }
 
-    /* כפתורים */
-    .box {
-      width: 100%;
-      max-width: 320px;
+    /* GRID */
+    .grid {
       display: flex;
       gap: 14px;
-      justify-content: center;
+    }
+
+    .col {
+      flex: 1;
+      padding: 12px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .natali {
+      background: linear-gradient(135deg, #fff1f5, #ffe4ec);
+    }
+
+    .tal {
+      background: linear-gradient(135deg, #eef3ff, #dde6ff);
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     .btn {
-      flex: 1;
-      background: white;
-      border-radius: 16px;
-      padding: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: white;
+      border-radius: 14px;
+      padding: 14px;
+      margin: 10px 0;
       text-decoration: none;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       transition: 0.2s ease;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.10);
     }
 
@@ -114,20 +129,42 @@
       width: auto;
     }
 
-    /* מובייל */
-    @media (max-width: 800px) {
+    /* 🎯 MOBILE אמיתי */
+    @media (max-width: 768px) {
+
+      body {
+        padding: 12px;
+        align-items: flex-start;
+      }
+
       .card {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .title {
+        font-size: 22px;
+      }
+
+      .message {
+        font-size: 14px;
+      }
+
+      .grid {
         flex-direction: column;
-        height: auto;
+        gap: 12px;
       }
 
-      html, body {
-        overflow: auto;
+      .col {
+        padding: 14px;
       }
 
-      .header {
-        position: static;
-        margin-bottom: 20px;
+      .btn {
+        padding: 16px;
+      }
+
+      .logo {
+        height: 24px;
       }
     }
   </style>
@@ -135,49 +172,75 @@
 
 <body>
 
+<!-- 🎉 קונפטי -->
+<script>
+  const colors = ['#f7a8c4', '#9bb1ff', '#ffd1dc', '#c7d2ff', '#ffe4ec'];
+
+  function createConfetti() {
+    const el = document.createElement('div');
+    el.className = 'confetti';
+
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    const size = Math.random() * 6 + 4;
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+
+    el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 7000);
+  }
+
+  setInterval(() => {
+    for (let i = 0; i < 5; i++) {
+      createConfetti();
+    }
+  }, 180);
+</script>
+
+<!-- כרטיס -->
 <div class="card">
 
-  <!-- נטלי -->
-  <div class="side natali">
-    <div class="content">
-      <div class="box">
-
-        <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
-          <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
-        </a>
-
-        <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
-          <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
-        </a>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- טל -->
-  <div class="side tal">
-    <div class="content">
-      <div class="box">
-
-        <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
-          <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
-        </a>
-
-        <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
-          <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
-        </a>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- Header מעל הכרטיס -->
-<div class="header">
   <div class="title">טל גרופר & נטלי גבאי 💍</div>
   <div class="date">26.6.26</div>
-  <div class="message">אנחנו כל כך מתרגשים לחגוג איתכם את היום שלנו. תודה שאתם כאן איתנו 💐</div>
+
+  <div class="message">
+    מתרגשים לחגוג את היום שלנו. תודה שאתם כאן איתנו 💐
+  </div>
+
+  <div class="grid">
+
+    <!-- נטלי -->
+    <div class="col natali">
+      <div class="name">נטלי</div>
+
+      <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
+        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+      </a>
+
+      <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
+        <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+      </a>
+    </div>
+
+    <!-- טל -->
+    <div class="col tal">
+      <div class="name">טל</div>
+
+      <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
+        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+      </a>
+
+      <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
+        <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+      </a>
+    </div>
+
+  </div>
+
 </div>
 
 </body>
