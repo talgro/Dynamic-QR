@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>בחירת יעד</title>
+  <title>מתנה לחתונה</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -22,10 +22,10 @@
       justify-content: center;
       text-decoration: none;
       color: white;
-      font-size: 26px;
-      font-weight: 500;
-      transition: all 0.2s ease;
       position: relative;
+      transition: all 0.2s ease;
+      text-align: center;
+      padding: 20px;
     }
 
     .half:hover {
@@ -42,16 +42,27 @@
     }
 
     .content {
-      text-align: center;
+      max-width: 260px;
     }
 
-    .small {
+    .name {
+      font-size: 34px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .desc {
       font-size: 16px;
-      opacity: 0.9;
-      margin-top: 6px;
+      opacity: 0.95;
+      margin-bottom: 10px;
     }
 
-    /* Mobile: הופך לעמודה */
+    .hint {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    /* מובייל */
     @media (max-width: 600px) {
       body {
         flex-direction: column;
@@ -62,17 +73,19 @@
 
 <body>
 
-<a class="half tal" href="https://example.com/tal">
+<a class="half natali" href="https://links.payboxapp.com/sMQVA1jb0Ub">
   <div class="content">
-    טל
-    <div class="small">לחצו להמשך</div>
+    <div class="name">נטלי</div>
+    <div class="desc">💐 ברכה לכלה</div>
+    <div class="hint">לחצו להעברת מתנה</div>
   </div>
 </a>
 
-<a class="half natali" href="https://example.com/natali">
+<a class="half tal" href="https://links.payboxapp.com/4BKtCQg9XUb">
   <div class="content">
-    נטלי
-    <div class="small">לחצו להמשך</div>
+    <div class="name">טל</div>
+    <div class="desc">🥂 ברכה לחתן</div>
+    <div class="hint">לחצו להעברת מתנה</div>
   </div>
 </a>
 
