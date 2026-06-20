@@ -20,50 +20,56 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      color: white;
-      position: relative;
-      transition: all 0.2s ease;
+      padding: 25px;
       text-align: center;
-      padding: 20px;
-    }
-
-    .half:hover {
-      filter: brightness(1.05);
-      transform: scale(1.01);
-    }
-
-    .tal {
-      background: linear-gradient(135deg, #6a85f1, #9bb1ff);
+      color: white;
     }
 
     .natali {
       background: linear-gradient(135deg, #f7a8c4, #ffd1dc);
     }
 
+    .tal {
+      background: linear-gradient(135deg, #6a85f1, #9bb1ff);
+    }
+
     .content {
-      max-width: 260px;
+      max-width: 280px;
+      width: 100%;
     }
 
     .name {
       font-size: 34px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .desc {
-      font-size: 16px;
-      opacity: 0.95;
-      margin-bottom: 10px;
+      font-size: 15px;
+      margin-bottom: 18px;
+      opacity: 0.9;
     }
 
-    .hint {
-      font-size: 13px;
-      opacity: 0.85;
+    .btn {
+      display: block;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      text-decoration: none;
+      padding: 12px 14px;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: white;
     }
 
     /* מובייל */
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       body {
         flex-direction: column;
       }
@@ -73,19 +79,35 @@
 
 <body>
 
-<a class="half natali" href="https://links.payboxapp.com/sMQVA1jb0Ub">
+<!-- נטלי -->
+<a class="half natali">
   <div class="content">
     <div class="name">נטלי</div>
-    <div class="desc">💐 ברכה לכלה</div>
-    <div class="hint">לחצו להעברת מתנה</div>
+    <div class="desc">💐 בחירת דרך להעברת מתנה</div>
+
+    <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
+      PayBox – נטלי
+    </a>
+
+    <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
+      Bit – נטלי
+    </a>
   </div>
 </a>
 
-<a class="half tal" href="https://links.payboxapp.com/4BKtCQg9XUb">
+<!-- טל -->
+<a class="half tal">
   <div class="content">
     <div class="name">טל</div>
-    <div class="desc">🥂 ברכה לחתן</div>
-    <div class="hint">לחצו להעברת מתנה</div>
+    <div class="desc">🥂 בחירת דרך להעברת מתנה</div>
+
+    <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
+      PayBox – טל
+    </a>
+
+    <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
+      Bit – טל
+    </a>
   </div>
 </a>
 
