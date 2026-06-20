@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -8,88 +9,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
-      height: 100%;
       margin: 0;
+      min-height: 100vh;
       font-family: 'Heebo', sans-serif;
       background: linear-gradient(135deg, #f7f3ef, #eef3ff);
-
-      /* חשוב למובייל + קונפטי */
       overflow-x: hidden;
-      overflow-y: auto;
     }
 
     body {
+      min-height: 100vh;
+      padding: 24px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      position: relative;
-      padding: 18px;
+      align-items: center;
     }
 
-    /* 🎉 קונפטי דינמי */
-    .confetti {
-      position: fixed;
-      top: -10px;
-      width: 7px;
-      height: 7px;
-      border-radius: 2px;
-      opacity: 0.8;
-      z-index: 0;
-      animation: fall linear forwards;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-      }
-    }
-
-    /* כרטיס */
-    .card {
-      width: 100%;
-      max-width: 720px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      padding: 22px;
+    /* כותרת */
+    .header {
       text-align: center;
-      z-index: 2;
-      position: relative;
+      margin-bottom: 20px;
+      width: min(100%, 380px);
     }
 
     .title {
       font-size: 26px;
       font-weight: 600;
-      margin-bottom: 6px;
     }
 
     .date {
-      font-size: 14px;
       color: #777;
-      margin-bottom: 10px;
+      margin-top: 6px;
     }
 
     .message {
-      font-size: 15px;
+      margin-top: 10px;
       color: #666;
-      margin-bottom: 22px;
+      font-size: 14px;
       line-height: 1.6;
     }
 
-    /* GRID */
+    /* בלוקים */
     .grid {
       display: flex;
+      flex-direction: column;
       gap: 14px;
+      width: min(100%, 380px);
     }
 
-    .col {
-      flex: 1;
-      padding: 12px;
-      border-radius: 16px;
-      text-align: center;
+    .block {
+      border-radius: 18px;
+      padding: 18px;
+      width: 100%;
     }
 
     .natali {
@@ -104,15 +80,17 @@
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: white;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
       border-radius: 14px;
-      padding: 14px;
+      padding: 16px;
       margin: 10px 0;
       text-decoration: none;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
@@ -126,45 +104,23 @@
 
     .logo {
       height: 26px;
-      width: auto;
     }
 
-    /* 🎯 MOBILE אמיתי */
-    @media (max-width: 768px) {
+    /* קונפטי */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      opacity: 0.8;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
 
-      body {
-        padding: 12px;
-        align-items: flex-start;
-      }
-
-      .card {
-        padding: 18px;
-        border-radius: 18px;
-      }
-
-      .title {
-        font-size: 22px;
-      }
-
-      .message {
-        font-size: 14px;
-      }
-
-      .grid {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .col {
-        padding: 14px;
-      }
-
-      .btn {
-        padding: 16px;
-      }
-
-      .logo {
-        height: 24px;
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
       }
     }
   </style>
@@ -172,76 +128,70 @@
 
 <body>
 
-<!-- 🎉 קונפטי -->
-<script>
-  const colors = ['#f7a8c4', '#9bb1ff', '#ffd1dc', '#c7d2ff', '#ffe4ec'];
-
-  function createConfetti() {
-    const el = document.createElement('div');
-    el.className = 'confetti';
-
-    el.style.left = Math.random() * 100 + 'vw';
-    el.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-    const size = Math.random() * 6 + 4;
-    el.style.width = size + 'px';
-    el.style.height = size + 'px';
-
-    el.style.animationDuration = (Math.random() * 3 + 3) + 's';
-
-    document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 7000);
-  }
-
-  setInterval(() => {
-    for (let i = 0; i < 5; i++) {
-      createConfetti();
-    }
-  }, 180);
-</script>
-
-<!-- כרטיס -->
-<div class="card">
-
-  <div class="title">טל גרופר & נטלי גבאי 💍</div>
-  <div class="date">26.6.26</div>
-
-  <div class="message">
-    מתרגשים לחגוג את היום שלנו. תודה שאתם כאן איתנו 💐
+  <!-- header -->
+  <div class="header">
+    <div class="title">טל גרופר & נטלי גבאי 💍</div>
+    <div class="date">26.6.26</div>
+    <div class="message">
+      מתרגשים לחגוג את היום שלנו. תודה שאתם כאן איתנו 💐
+    </div>
   </div>
 
+  <!-- cards -->
   <div class="grid">
 
     <!-- נטלי -->
-    <div class="col natali">
+    <div class="block natali">
       <div class="name">נטלי</div>
 
       <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
-        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox" />
       </a>
 
       <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
-        <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+        <img class="logo" src="Bit_logo_2024.svg" alt="Bit" />
       </a>
     </div>
 
     <!-- טל -->
-    <div class="col tal">
+    <div class="block tal">
       <div class="name">טל</div>
 
       <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
-        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox" />
       </a>
 
       <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
-        <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+        <img class="logo" src="Bit_logo_2024.svg" alt="Bit" />
       </a>
     </div>
 
   </div>
 
-</div>
+  <!-- קונפטי -->
+  <script>
+    const colors = ['#f7a8c4','#9bb1ff','#ffd1dc','#c7d2ff','#ffe4ec'];
+
+    function createConfetti() {
+      const el = document.createElement('div');
+      el.className = 'confetti';
+
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.width = el.style.height = (Math.random() * 6 + 4) + 'px';
+      el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 7000);
+    }
+
+    setInterval(() => {
+      for (let i = 0; i < 4; i++) {
+        createConfetti();
+      }
+    }, 150);
+  </script>
 
 </body>
 </html>
+```
