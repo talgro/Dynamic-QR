@@ -1,21 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="he">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>בחירת כניסה</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Assistant', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f7f3ef, #ffffff);
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 18px;
+      margin: 12px 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .divider {
+      margin: 25px auto;
+      width: 60px;
+      height: 1px;
+      background: #ddd;
+    }
+  </style>
 </head>
+
 <body>
-<script>
-  const links = [
-    "https://links.payboxapp.com/sMQVA1jb0Ub", // natalie
-    "https://links.payboxapp.com/4BKtCQg9XUb" // tal
-  ];
 
-  const target = links[Math.floor(Math.random() * links.length)];
+<div class="container">
+  <h1>נטלי & טל</h1>
+  <div class="subtitle">אנא בחרו את היעד שלכם</div>
 
-  window.location.replace(target);
-</script>
+  <a class="card" href="https://example.com/a">
+    <div class="title">👤 אישור הגעה</div>
+    <div class="desc">מילוי פרטים ואישור השתתפות</div>
+  </a>
 
-<p>Redirecting...</p>
+  <a class="card" href="https://example.com/b">
+    <div class="title">🎉 מידע על האירוע</div>
+    <div class="desc">לו״ז, מיקום והוראות הגעה</div>
+  </a>
+
+  <div class="divider"></div>
+
+</div>
+
 </body>
 </html>
