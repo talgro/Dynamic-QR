@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Assistant', sans-serif;
@@ -15,27 +19,26 @@
       display: flex;
     }
 
-    .half {
+    .side {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 25px;
+      padding: 40px 20px;
       text-align: center;
-      color: white;
     }
 
     .natali {
-      background: linear-gradient(135deg, #f7a8c4, #ffd1dc);
+      background: linear-gradient(135deg, #fff1f5, #ffe4ec);
     }
 
     .tal {
-      background: linear-gradient(135deg, #6a85f1, #9bb1ff);
+      background: linear-gradient(135deg, #eef3ff, #dde6ff);
     }
 
-    .content {
-      max-width: 280px;
+    .box {
       width: 100%;
+      max-width: 340px;
     }
 
     .name {
@@ -46,30 +49,39 @@
 
     .desc {
       font-size: 15px;
-      margin-bottom: 18px;
-      opacity: 0.9;
+      color: #666;
+      margin-bottom: 25px;
     }
 
-    .btn {
-      display: block;
-      background: rgba(255,255,255,0.9);
-      color: #333;
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: white;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border-radius: 14px;
       text-decoration: none;
-      padding: 12px 14px;
-      margin: 10px 0;
-      border-radius: 10px;
+      color: #333;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
       font-size: 15px;
       font-weight: 500;
-      transition: 0.2s;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      background: white;
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    }
+
+    .logo {
+      height: 22px;
+      width: auto;
     }
 
     /* מובייל */
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       body {
         flex-direction: column;
       }
@@ -80,36 +92,40 @@
 <body>
 
 <!-- נטלי -->
-<a class="half natali">
-  <div class="content">
+<div class="side natali">
+  <div class="box">
     <div class="name">נטלי</div>
-    <div class="desc">💐 בחירת דרך להעברת מתנה</div>
+    <div class="desc">💐 בחרו דרך להעברת מתנה</div>
 
-    <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
-      PayBox – נטלי
+    <a class="card" href="https://links.payboxapp.com/sMQVA1jb0Ub">
+      <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+      PayBox
     </a>
 
-    <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
-      Bit – נטלי
+    <a class="card" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
+      <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+      Bit
     </a>
   </div>
-</a>
+</div>
 
 <!-- טל -->
-<a class="half tal">
-  <div class="content">
+<div class="side tal">
+  <div class="box">
     <div class="name">טל</div>
-    <div class="desc">🥂 בחירת דרך להעברת מתנה</div>
+    <div class="desc">🥂 בחרו דרך להעברת מתנה</div>
 
-    <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
-      PayBox – טל
+    <a class="card" href="https://links.payboxapp.com/4BKtCQg9XUb">
+      <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
+      PayBox
     </a>
 
-    <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
-      Bit – טל
+    <a class="card" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
+      <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
+      Bit
     </a>
   </div>
-</a>
+</div>
 
 </body>
 </html>
