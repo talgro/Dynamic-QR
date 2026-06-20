@@ -12,38 +12,48 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body {
       margin: 0;
-      min-height: 100vh;
       font-family: 'Heebo', sans-serif;
       background: linear-gradient(135deg, #f7f3ef, #eef3ff);
       overflow-x: hidden;
+      padding: 12px;
+      color: #222;
     }
 
-    body {
-      min-height: 100vh;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* קונפטי ברקע */
+    #confetti-layer {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    /* כותרת */
+    /* תוכן מעל הקונפטי */
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* HEADER */
     .header {
       text-align: center;
-      margin-bottom: 20px;
-      width: min(100%, 380px);
+      margin-top: 12px;
+      margin-bottom: 18px;
     }
 
     .title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
+      margin-bottom: 6px;
     }
 
     .date {
       color: #777;
-      margin-top: 6px;
+      font-size: 14px;
     }
 
     .message {
@@ -53,18 +63,18 @@
       line-height: 1.6;
     }
 
-    /* בלוקים */
+    /* BLOCKS */
     .grid {
       display: flex;
       flex-direction: column;
       gap: 14px;
-      width: min(100%, 380px);
+      margin-top: 18px;
     }
 
     .block {
-      border-radius: 18px;
-      padding: 18px;
-      width: 100%;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     .natali {
@@ -76,24 +86,36 @@
     }
 
     .name {
+      text-align: center;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
-      text-align: center;
     }
 
+    /* BUTTONS */
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(6px);
+      gap: 10px;
+
+      background: #fff;
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px;
       margin: 10px 0;
+
       text-decoration: none;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      transition: 0.2s ease;
+
+      border: 1px solid rgba(0,0,0,0.04);
+
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
     }
 
     .btn:hover {
@@ -102,19 +124,16 @@
     }
 
     .logo {
-      height: 26px;
+      height: 24px;
     }
 
-    /* קונפטי */
+    /* CONFETTI */
     .confetti {
-      position: fixed;
+      position: absolute;
       top: -10px;
-      width: 7px;
-      height: 7px;
       border-radius: 2px;
-      opacity: 0.8;
+      opacity: 0.75;
       animation: fall linear forwards;
-      pointer-events: none;
     }
 
     @keyframes fall {
@@ -122,74 +141,99 @@
         transform: translateY(110vh) rotate(720deg);
       }
     }
+
+    /* MOBILE */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .title {
+        font-size: 22px;
+      }
+
+      .block {
+        padding: 14px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- header -->
+<!-- קונפטי רקע -->
+<div id="confetti-layer"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
   <div class="header">
     <div class="title">טל גרופר & נטלי גבאי 💍</div>
     <div class="date">26.6.26</div>
     <div class="message">
-      מתרגשים לחגוג את היום שלנו. תודה שאתם כאן איתנו 💐
+      מתרגשים לחגוג את היום שלנו. תודה שאתם חלק מהרגע הזה 💐
     </div>
   </div>
 
-  <!-- cards -->
+  <!-- BLOCKS -->
   <div class="grid">
 
-    <!-- נטלי -->
+    <!-- NATALI -->
     <div class="block natali">
       <div class="name">נטלי</div>
 
       <a class="btn" href="https://links.payboxapp.com/sMQVA1jb0Ub">
-        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox" />
+        <img class="logo" src="Pay-box-logo@3x.webp" />
       </a>
 
       <a class="btn" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
-        <img class="logo" src="Bit_logo_2024.svg" alt="Bit" />
+        <img class="logo" src="Bit_logo_2024.svg" />
       </a>
     </div>
 
-    <!-- טל -->
+    <!-- TAL -->
     <div class="block tal">
       <div class="name">טל</div>
 
       <a class="btn" href="https://links.payboxapp.com/4BKtCQg9XUb">
-        <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox" />
+        <img class="logo" src="Pay-box-logo@3x.webp" />
       </a>
 
       <a class="btn" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
-        <img class="logo" src="Bit_logo_2024.svg" alt="Bit" />
+        <img class="logo" src="Bit_logo_2024.svg" />
       </a>
     </div>
 
   </div>
 
-  <!-- קונפטי -->
-  <script>
-    const colors = ['#f7a8c4','#9bb1ff','#ffd1dc','#c7d2ff','#ffe4ec'];
+</div>
 
-    function createConfetti() {
-      const el = document.createElement('div');
-      el.className = 'confetti';
+<script>
+  const colors = ['#f7a8c4','#9bb1ff','#ffd1dc','#c7d2ff','#ffe4ec'];
 
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.background = colors[Math.floor(Math.random() * colors.length)];
-      el.style.width = el.style.height = (Math.random() * 6 + 4) + 'px';
-      el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+  function createConfetti() {
+    const el = document.createElement('div');
 
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 7000);
+    const size = Math.random() * 5 + 3;
+
+    el.className = 'confetti';
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+
+    document.getElementById('confetti-layer').appendChild(el);
+
+    setTimeout(() => el.remove(), 8000);
+  }
+
+  setInterval(() => {
+    for (let i = 0; i < 2; i++) {
+      createConfetti();
     }
-
-    setInterval(() => {
-      for (let i = 0; i < 4; i++) {
-        createConfetti();
-      }
-    }, 150);
-  </script>
+  }, 300);
+</script>
 
 </body>
 </html>
