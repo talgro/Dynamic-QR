@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>בחירת כניסה</title>
+  <title>בחירת יעד</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -13,87 +13,68 @@
       font-family: 'Assistant', sans-serif;
       height: 100vh;
       display: flex;
+    }
+
+    .half {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #f7f3ef, #ffffff);
-      color: #333;
-    }
-
-    .container {
-      text-align: center;
-      width: 90%;
-      max-width: 420px;
-    }
-
-    h1 {
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
-
-    .subtitle {
-      font-size: 15px;
-      color: #777;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      display: block;
       text-decoration: none;
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 14px;
-      padding: 18px;
-      margin: 12px 0;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      color: white;
+      font-size: 26px;
+      font-weight: 500;
       transition: all 0.2s ease;
+      position: relative;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    .half:hover {
+      filter: brightness(1.05);
+      transform: scale(1.01);
     }
 
-    .title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 4px;
+    .tal {
+      background: linear-gradient(135deg, #6a85f1, #9bb1ff);
     }
 
-    .desc {
-      font-size: 14px;
-      color: #777;
+    .natali {
+      background: linear-gradient(135deg, #f7a8c4, #ffd1dc);
     }
 
-    .divider {
-      margin: 25px auto;
-      width: 60px;
-      height: 1px;
-      background: #ddd;
+    .content {
+      text-align: center;
+    }
+
+    .small {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    /* Mobile: הופך לעמודה */
+    @media (max-width: 600px) {
+      body {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>נטלי & טל</h1>
-  <div class="subtitle">אנא בחרו את היעד שלכם</div>
+<a class="half tal" href="https://example.com/tal">
+  <div class="content">
+    טל
+    <div class="small">לחצו להמשך</div>
+  </div>
+</a>
 
-  <a class="card" href="https://example.com/a">
-    <div class="title">👤 אישור הגעה</div>
-    <div class="desc">מילוי פרטים ואישור השתתפות</div>
-  </a>
-
-  <a class="card" href="https://example.com/b">
-    <div class="title">🎉 מידע על האירוע</div>
-    <div class="desc">לו״ז, מיקום והוראות הגעה</div>
-  </a>
-
-  <div class="divider"></div>
-
-</div>
+<a class="half natali" href="https://example.com/natali">
+  <div class="content">
+    נטלי
+    <div class="small">לחצו להמשך</div>
+  </div>
+</a>
 
 </body>
 </html>
