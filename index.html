@@ -22,6 +22,39 @@
 
     body {
       display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER עליון */
+    .header {
+      text-align: center;
+      padding: 22px 16px 10px;
+    }
+
+    .title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .message {
+      font-size: 14px;
+      color: #666;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* SPLIT */
+    .split {
+      flex: 1;
+      display: flex;
     }
 
     .side {
@@ -30,7 +63,6 @@
       align-items: center;
       justify-content: center;
       padding: 30px;
-      text-align: center;
     }
 
     .natali {
@@ -43,29 +75,7 @@
 
     .box {
       width: 100%;
-      max-width: 360px;
-    }
-
-    .title {
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .date {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 14px;
-    }
-
-    .message {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 26px;
-      line-height: 1.6;
-    }
-
-    .row {
+      max-width: 340px;
       display: flex;
       gap: 14px;
       justify-content: center;
@@ -95,7 +105,7 @@
     }
 
     @media (max-width: 800px) {
-      body {
+      .split {
         flex-direction: column;
       }
     }
@@ -104,18 +114,22 @@
 
 <body>
 
-<!-- נטלי -->
-<div class="side natali">
-  <div class="box">
+<!-- HEADER אחד בלבד -->
+<div class="header">
+  <div class="title">טל גרופר & נטלי גבאי 💍</div>
+  <div class="date">26.6.26</div>
+  <div class="message">
+    אנחנו כל כך מתרגשים לחגוג איתכם את היום שלנו. תודה שאתם כאן איתנו 💐
+  </div>
+</div>
 
-    <div class="title">טל גרופר & נטלי גבאי 💍</div>
-    <div class="date">26.6.26</div>
+<!-- SPLIT -->
+<div class="split">
 
-    <div class="message">
-      אנחנו כל כך מתרגשים לחגוג איתכם את היום שלנו. תודה שאתם כאן איתנו 💐
-    </div>
+  <!-- נטלי -->
+  <div class="side natali">
+    <div class="box">
 
-    <div class="row">
       <a class="card" href="https://links.payboxapp.com/sMQVA1jb0Ub">
         <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
       </a>
@@ -123,23 +137,14 @@
       <a class="card" href="https://www.bitpay.co.il/app/me/DCF1C51B-CB29-5C26-7258-5EF6B952E2ACE24A">
         <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
       </a>
-    </div>
 
+    </div>
   </div>
-</div>
 
-<!-- טל -->
-<div class="side tal">
-  <div class="box">
+  <!-- טל -->
+  <div class="side tal">
+    <div class="box">
 
-    <div class="title">טל גרופר & נטלי גבאי 💍</div>
-    <div class="date">26.6.26</div>
-
-    <div class="message">
-      אנחנו כל כך מתרגשים לחגוג איתכם את היום שלנו. תודה שאתם כאן איתנו 💐
-    </div>
-
-    <div class="row">
       <a class="card" href="https://links.payboxapp.com/4BKtCQg9XUb">
         <img class="logo" src="Pay-box-logo@3x.webp" alt="PayBox">
       </a>
@@ -147,9 +152,10 @@
       <a class="card" href="https://www.bitpay.co.il/app/me/24CD84B1-FA1A-1862-2D28-ECC3C74D66B8432A">
         <img class="logo" src="Bit_logo_2024.svg" alt="Bit">
       </a>
-    </div>
 
+    </div>
   </div>
+
 </div>
 
 </body>
